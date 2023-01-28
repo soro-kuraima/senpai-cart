@@ -73,7 +73,7 @@ export default function Header() {
           >
             <Link
               href="/tees"
-              className="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700"
+              className="block h-16 border-b-4 border-transparent leading-[4rem] hover:border-current hover:text-red-700 focus:text-red-700"
             >
               Tees
             </Link>
