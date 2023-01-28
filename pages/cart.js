@@ -9,7 +9,7 @@ export default function Cart() {
   const dispatch = useStoreDispatch();
 
   const isCartEmpty = !store.cart.length;
-  console.log(store);
+  //console.log(store);
 
   function removeItem(id) {
     dispatch({
@@ -19,7 +19,7 @@ export default function Cart() {
   }
 
   function incrementQuantity(id, quantity) {
-    console.log("increment quantity called");
+    //console.log("increment quantity called");
 
     if (!quantity) {
       return;
@@ -35,7 +35,7 @@ export default function Cart() {
   }
 
   function decrementQuantity(id, quantity) {
-    console.log("decrement quantity called");
+    //console.log("decrement quantity called");
 
    
     quantity = quantity - 1;
@@ -123,12 +123,9 @@ export default function Cart() {
                                   -
                                 </button>
 
-                                <input
-                                  type="number"
-                                  id="Quantity"
-                                  value={cartItem.quantity}
-                                  class="h-10 w-16 rounded border-gray-200 text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
-                                />
+                                <span
+                                  class="h-10 w-16 rounded border-gray-200 flex items-center justify-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                                > {cartItem.quantity} </span>
 
                                 <button
                                   onClick={(event) => {

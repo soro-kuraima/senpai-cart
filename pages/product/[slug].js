@@ -18,10 +18,10 @@ export default function ProductDisplayPage() {
   //const store = useStore();
   const dispatch = useStoreDispatch();
 
-  console.log(Boolean(size));
+  //console.log(Boolean(size));
 
   const product = data.products.find((product) => product.id === slug);
-  console.log(product);
+  //console.log(product);
 
   const [isPresentInCart, setPresentInCart] = useState( () => Boolean(store.cart.find(cartItem => cartItem.id === product.id))); 
 
@@ -47,7 +47,7 @@ export default function ProductDisplayPage() {
     });
   }
 
-  console.log("item is present in cart", isPresentInCart)
+  //console.log("item is present in cart", isPresentInCart)
 
   return (
     <Layout>
@@ -168,8 +168,8 @@ export default function ProductDisplayPage() {
                   onChange={(event) => {
                     setSize(event.target.value);
                     setSizeSelected(true);
-                    console.log(event.target.value);
-                    console.log(size);
+                    //console.log(event.target.value);
+                    //console.log(size);
                   }}
                 >
                   <legend className="mb-1 text-sm font-medium">Size</legend>
