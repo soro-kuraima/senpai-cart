@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import Layout from "../components/Layout";
 
 export default function Custom404() {
@@ -29,7 +30,15 @@ export default function Custom404() {
             Uh-oh!
           </h1>
 
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
           <p className="mt-4 text-gray-500">We can't find that page.</p>
+
+          <Link
+            href="/"
+            class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:ring"
+          >
+            Go Back Home
+          </Link>
         </div>
       </div>
     </Layout>
