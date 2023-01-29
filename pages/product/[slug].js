@@ -23,7 +23,9 @@ export default function ProductDisplayPage() {
   const product = data.products.find((product) => product.id === slug);
   //console.log(product);
 
-  const [isPresentInCart, setPresentInCart] = useState( () => Boolean(store.cart.find(cartItem => cartItem.id === product.id))); 
+  const [isPresentInCart, setPresentInCart] = useState(() =>
+    Boolean(store.cart.find((cartItem) => cartItem.id === product.id))
+  );
 
   if (!product) {
     return (
@@ -51,7 +53,6 @@ export default function ProductDisplayPage() {
 
   return (
     <Layout>
-      <Link href={"/"}>go to home</Link>
       <section>
         <div className="relative max-w-screen-xl px-4 py-8 mx-auto">
           <div className="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
@@ -190,24 +191,25 @@ export default function ProductDisplayPage() {
                   )}
                 </div>
 
-              {(!isPresentInCart) &&  <div className="flex mt-8">
-                  <button
-                    type="submit"
-                    className="block px-5 py-3 ml-3 text-xs font-medium text-black bg-yellow-400 rounded hover:bg-yellow-300"
-                  >
-                    Add to Cart
-                  </button>
-                </div>}
-               {(isPresentInCart) && <div className="flex mt-8">
-                  <Link href='/cart'>
-                    <span
-                      
+                {!isPresentInCart && (
+                  <div className="flex mt-8">
+                    <button
+                      type="submit"
                       className="block px-5 py-3 ml-3 text-xs font-medium text-black bg-yellow-400 rounded hover:bg-yellow-300"
                     >
-                      Go to Cart
-                    </span>
-                  </Link>
-                </div>}
+                      Add to Cart
+                    </button>
+                  </div>
+                )}
+                {isPresentInCart && (
+                  <div className="flex mt-8">
+                    <Link href="/cart">
+                      <span className="block px-5 py-3 ml-3 text-xs font-medium text-black bg-yellow-400 rounded hover:bg-yellow-300">
+                        Go to Cart
+                      </span>
+                    </Link>
+                  </div>
+                )}
               </form>
             </div>
           </div>

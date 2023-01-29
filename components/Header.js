@@ -51,10 +51,11 @@ export default function Header() {
               </a>
             </div>
 
-            <Link href="/" className="flex hidden sm:block">
+            <Link href="/" className="sm:flex">
               <span className="sr-only">Logo</span>
               <Image
                 src="/images/senpaiKart.png"
+                className="pr-1 object-cover min-w-6"
                 alt="senpai-kart"
                 height={100}
                 width={100}

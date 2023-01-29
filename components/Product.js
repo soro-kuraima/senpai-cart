@@ -3,26 +3,24 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Product({ productData }) {
-
   return (
-    <div className="relative block overflow-hidden group border border-gray-700 rounded-lg shadow-2xl">
-      <Link href={`/product/${productData.id}`}>
-        <Image
+    <div className="relative overflow-hidden border border-gray-700 rounded-md shadow-xl">
+      <Link href={`/product/${productData.id}`} className="block">
+        
+         <Image
           src={productData.images[0]}
-          alt="uhmm"
+          alt={productData.name}
           height={400}
           width={400}
-          className="object-contain w-full h-64 transition duration-500 group-hover:scale-105 sm:h-72"
+          className="object-cover w-full rounded aspect-square"
         />
-      </Link>
-      <div className="relative p-6 bg-white">
-        <Link href={`/product/${productData.id}`}>
-          <h3 className="mt-4 text-lg font-medium text-gray-900 hover:text-yellow-400">
+        <div className="mt-3">
+          <h3 className="pl-3 font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4">
             {productData.name}
           </h3>
-        </Link>
-        <p className="mt-1.5 text-sm text-gray-700">₹ {productData.price}</p>
-      </div>
+          <p className="mt-1 pl-3 text-sm text-gray-700">₹ {productData.price}/- </p>
+        </div>
+      </Link>
     </div>
   );
 }
