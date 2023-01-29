@@ -26,7 +26,7 @@ export default function RegisterPage() {
           <p className="text-lg font-medium text-center">Sign Up</p>
 
           <div>
-            <label for="name" className="text-sm font-medium">
+            <label htmlFor="name" className="text-sm font-medium">
               Name
             </label>
 
@@ -43,7 +43,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label for="email" className="text-sm font-medium">
+            <label htmlFor="email" className="text-sm font-medium">
               Email
             </label>
 
@@ -77,7 +77,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label for="password" className="text-sm font-medium">
+            <label htmlFor="password" className="text-sm font-medium">
               Password
             </label>
 
@@ -117,7 +117,7 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label for="confirm-password" className="text-sm font-medium">
+            <label htmlFor="confirm-password" className="text-sm font-medium">
               Confirm Password
             </label>
 

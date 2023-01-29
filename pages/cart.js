@@ -1,12 +1,15 @@
 import React from "react";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
 import { useStore, useStoreDispatch } from "../lib/StoreContext";
 import EmptyCart from "../components/EmptyCart";
 
-export default function Cart() {
+function Cart() {
   const store = useStore();
   const dispatch = useStoreDispatch();
+
+  //console.log(store);
 
   const isCartEmpty = !store.cart.length;
   //console.log(store);
@@ -103,15 +106,15 @@ export default function Cart() {
 
                           <div className="flex items-center justify-end flex-1 gap-2">
                             <div>
-                              <label for="Quantity" class="sr-only">
+                              <label htmlFor="Quantity" className="sr-only">
                                 {" "}
                                 Quantity{" "}
                               </label>
 
-                              <div class="flex items-center gap-1">
+                              <div className="flex items-center gap-1">
                                 <button
                                   type="button"
-                                  class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+                                  className="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                                   onClick={(event) => {
                                     event.preventDefault();
                                     decrementQuantity(
@@ -124,7 +127,7 @@ export default function Cart() {
                                 </button>
 
                                 <span
-                                  class="h-10 w-16 rounded border-gray-200 flex items-center justify-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+                                  className="h-10 w-16 rounded border-gray-200 flex items-center justify-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
                                 > {cartItem.quantity} </span>
 
                                 <button
@@ -136,7 +139,7 @@ export default function Cart() {
                                     );
                                   }}
                                   type="button"
-                                  class="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
+                                  className="w-10 h-10 leading-10 text-gray-600 transition hover:opacity-75"
                                 >
                                   +
                                 </button>
@@ -178,7 +181,7 @@ export default function Cart() {
                     <dl className="space-y-0.5 font-mono text-xs">
                       <div className="flex justify-between !text-base font-medium">
                         <dt>Total</dt>
-                        <dd>{store.total}</dd>
+                        <dd>₹ {store.total} /-</dd>
                       </div>
                     </dl>
 
@@ -200,3 +203,5 @@ export default function Cart() {
     </Layout>
   );
 }
+
+export default dynamic(() => Promise.resolve(Cart), {ssr: false})

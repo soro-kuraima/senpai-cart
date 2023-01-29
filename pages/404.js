@@ -35,7 +35,7 @@ export default function Custom404() {
 
           <Link
             href="/"
-            class="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:ring"
+            className="inline-block px-5 py-3 mt-6 text-sm font-medium text-white bg-yellow-500 rounded hover:bg-yellow-600 focus:outline-none focus:ring"
           >
             Go Back Home
           </Link>

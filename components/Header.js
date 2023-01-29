@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import MobileMenu from "./MobileMenu";
+import { useStore } from "../lib/StoreContext";
 
 export default function Header() {
   const [mobileMenuToggle, setMobileMenuToggle] = useState(false);
+  const {cart} = useStore();
+  const [quantity, setQuantity] = useState("");
+  useEffect(() => {
+    setQuantity(cart.reduce(
+      (totalAccumulator, currentItem) =>
+        totalAccumulator + currentItem.quantity,
+      0
+    ))
+  }, [cart]);
   return (
     <>
       <header aria-label="Site Header" className="border-b border-gray-100">
@@ -16,35 +26,38 @@ export default function Header() {
                 className="lg:hidden"
                 onClick={() => setMobileMenuToggle((mobMenu) => !mobMenu)}
               >
-              {(!mobileMenuToggle) &&  <svg
-                  className="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={3}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>}
-                {
-                  (mobileMenuToggle) && <svg
-                  className="h-5 w-5"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={0.1}
-                    d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
-                  />
-                </svg>}
+                {!mobileMenuToggle && (
+                  <svg
+                    className="h-6 w-6"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={3}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+                {mobileMenuToggle && (
+                  <svg
+                    className="h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={0.1}
+                      d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"
+                    />
+                  </svg>
+                )}
               </button>
               <a href="#" className="">
                 <span className="sr-only">Logo</span>
@@ -129,7 +142,7 @@ export default function Header() {
             </nav>
 
             <div className="sm:ml-8 flex items-center">
-              <div className="flex items-center divide-x divide-gray-100 border-x border-gray-100">
+              <div className="flex relative items-center divide-x divide-gray-100 border-x border-gray-100">
                 <span>
                   <Link
                     href="/cart"
@@ -151,6 +164,9 @@ export default function Header() {
                     </svg>
 
                     <span className="sr-only">Cart</span>
+                    <span class="whitespace-nowrap block absolute top-2 rounded-full bg-teal-100 px-1.5 py-0.5 text-sm text-purple-700">
+                      {quantity}
+                    </span>
                   </Link>
                 </span>
 

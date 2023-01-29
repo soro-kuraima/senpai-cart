@@ -26,7 +26,7 @@ export default function LoginPage() {
             <p className="text-lg font-medium">Sign in to your account</p>
 
             <div>
-              <label for="email" className="text-sm font-medium">
+              <label htmlFor="email" className="text-sm font-medium">
                 Email
               </label>
 
@@ -60,7 +60,7 @@ export default function LoginPage() {
             </div>
 
             <div>
-              <label for="password" className="text-sm font-medium">
+              <label htmlFor="password" className="text-sm font-medium">
                 Password
               </label>
 
