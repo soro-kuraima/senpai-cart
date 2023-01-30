@@ -4,10 +4,12 @@ import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
 import { useStore, useStoreDispatch } from "../lib/StoreContext";
 import EmptyCart from "../components/EmptyCart";
+import { useRouter } from "next/router";
 
 function Cart() {
   const store = useStore();
   const dispatch = useStoreDispatch();
+  const router = useRouter();
 
   //console.log(store);
 
@@ -186,12 +188,12 @@ function Cart() {
                     </dl>
 
                     <div className="flex justify-end">
-                      <a
-                        href="/checkout"
+                      <button
+                        onClick={() => router.push('login?redirect=/shipping')}
                         className="block px-5 py-3 font-mono text-sm text-white uppercase bg-yellow-500 border-black hover:bg-yellow-600"
                       >
                         Checkout
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
