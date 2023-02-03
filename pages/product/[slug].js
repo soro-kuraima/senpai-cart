@@ -59,28 +59,12 @@ export default function ProductDisplayPage() {
             <div className="grid grid-cols-2 gap-4 md:grid-cols-1">
               <Image
                 alt={product.name}
-                src={product.images[0]}
+                src={product.image}
                 width={375}
                 height={500}
                 className="object-contain w-full aspect-square rounded-xl"
               />
 
-              <div className="grid grid-cols-2 gap-4 lg:mt-4">
-                {product.images.map((image, index) => {
-                  if (index > 0) {
-                    return (
-                      <Image
-                        key={image}
-                        alt={product.name}
-                        src={image}
-                        width={375}
-                        height={500}
-                        className="object-cover w-full aspect-square rounded-xl"
-                      />
-                    );
-                  }
-                })}
-              </div>
             </div>
 
             <div className="sticky top-0">

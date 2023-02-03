@@ -6,7 +6,7 @@ export default function EmptyCart() {
   return (
     <div className="flex flex-col h-screen bg-white">
   <Image
-    src="/images/banner-1.webp"
+    src="/image/banner-1.webp"
     alt="banner"
     className="object-cover w-full h-64"
     height={800}

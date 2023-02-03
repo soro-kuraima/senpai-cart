@@ -164,7 +164,7 @@ export default function Header() {
                     </svg>
 
                     <span className="sr-only">Cart</span>
-                    <span class="whitespace-nowrap block absolute top-2 rounded-full bg-teal-100 px-1.5 py-0.5 text-sm text-purple-700">
+                    <span className="whitespace-nowrap block absolute top-2 rounded-full bg-teal-100 px-1.5 py-0.5 text-sm text-purple-700">
                       {quantity}
                     </span>
                   </Link>

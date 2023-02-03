@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import dynamic from "next/dynamic";
 import Layout from "../components/Layout";
 import { useStore, useStoreDispatch } from "../lib/StoreContext";
@@ -78,7 +79,7 @@ function Cart() {
                             <span className="absolute inset-0 translate-x-1 translate-y-1 bg-teal-500"></span>
 
                             <Image
-                              src={cartItem.images[0]}
+                              src={cartItem.image}
                               alt={cartItem.name}
                               className="relative object-cover w-16 h-16 border-2 border-black"
                               height={100}
@@ -186,12 +187,12 @@ function Cart() {
                     </dl>
 
                     <div className="flex justify-end">
-                      <a
+                      <Link
                         href="/checkout"
                         className="block px-5 py-3 font-mono text-sm text-white uppercase bg-yellow-500 border-black hover:bg-yellow-600"
                       >
                         Checkout
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>

@@ -15,7 +15,7 @@ export default function RegisterPage() {
       <div className="mx-auto max-w-lg">
         <h1 className="text-center text-2xl font-bold text-indigo-600 sm:text-3xl flex justify-center">
         <Image
-              src="/images/senpaiKart.png"
+              src="/image/senpaiKart.png"
               alt="senpai-kart"
               height={200}
               width={200}

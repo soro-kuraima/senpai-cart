@@ -8,7 +8,7 @@ export default function Product({ productData }) {
       <Link href={`/product/${productData.id}`} className="block">
         
          <Image
-          src={productData.images[0]}
+          src={productData.image}
           alt={productData.name}
           height={400}
           width={400}
